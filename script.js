@@ -67,4 +67,19 @@
             addTodoToDOM(newTodo);
         });
     }
-    
+      // Update todo on server
+    function updateTodoOnServer(id, completed) {
+        fetch('update-todo.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `id=${id}&completed=${completed ? 1 : 0}`
+        })
+        .then(response => response.json())
+        .then(updated => {
+            if (updated.success) {
+                loadTodos(); // Refresh the list
+            }
+        });
+    }
