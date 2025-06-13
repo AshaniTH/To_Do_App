@@ -1,4 +1,9 @@
-    loadTodos();
+   document.addEventListener('DOMContentLoaded', function() {
+    const todoForm = document.getElementById('todo-form');
+    const todoInput = document.getElementById('todo-input');
+    const todoList = document.getElementById('todo-list');
+    
+   loadTodos();
     
     // Add new todo
     todoForm.addEventListener('submit', function(e) {
