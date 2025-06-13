@@ -83,3 +83,20 @@
             }
         });
     }
+     // Delete todo from server
+    function deleteTodoOnServer(id) {
+        fetch('delete-todo.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `id=${id}`
+        })
+        .then(response => response.json())
+        .then(deleted => {
+            if (deleted.success) {
+                document.querySelector(`.todo-item[data-id="${id}"]`).remove();
+            }
+        });
+    }
+});
