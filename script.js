@@ -53,4 +53,18 @@
         li.appendChild(deleteBtn);
         todoList.appendChild(li);
     }
+        // Add todo to server
+    function addTodoToServer(text) {
+        fetch('add-todo.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `text=${encodeURIComponent(text)}`
+        })
+        .then(response => response.json())
+        .then(newTodo => {
+            addTodoToDOM(newTodo);
+        });
+    }
     
