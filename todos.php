@@ -6,3 +6,7 @@ $file = 'todos.json';
 if (!file_exists($file)) {
     file_put_contents($file, '[]');
 }
+// Read and return todos
+$todos = json_decode(file_get_contents($file), true);
+echo json_encode($todos);
+?>
