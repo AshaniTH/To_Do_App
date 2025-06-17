@@ -14,4 +14,5 @@ if (!empty($text)) {
         'completed' => false,
         'created_at' => date('Y-m-d H:i:s')
     ];
-    
+      // Add to array
+    $todos[] = $newTodo;
