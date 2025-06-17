@@ -7,3 +7,11 @@ $todos = json_decode(file_get_contents($file), true);
 $text = $_POST['text'] ?? '';
 
 if (!empty($text)) {
+    // Create new todo
+    $newTodo = [
+        'id' => uniqid(),
+        'text' => $text,
+        'completed' => false,
+        'created_at' => date('Y-m-d H:i:s')
+    ];
+    
