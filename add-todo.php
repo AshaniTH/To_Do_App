@@ -16,3 +16,12 @@ if (!empty($text)) {
     ];
       // Add to array
     $todos[] = $newTodo;
+     // Save back to file
+    file_put_contents($file, json_encode($todos));
+    
+    // Return the new todo
+    echo json_encode($newTodo);
+} else {
+    echo json_encode(['error' => 'No text provided']);
+}
+?>
